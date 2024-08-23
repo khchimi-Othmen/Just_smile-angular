@@ -29,46 +29,33 @@ export class AppointmentListComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedDate = new Date();
-    console.log('AppointmentListComponent initialized, selectedDate:', this.selectedDate);
     this.loadAppointments();
   }
 
-
   loadAppointments(): void {
     const today = new Date();
-    console.log('Loading appointments for date:', this.selectedDate || today);
-
     if (this.selectedDate) {
       this.appointmentService.getAppointmentsByDate(this.selectedDate).subscribe(data => {
-        console.log('Appointments received:', data);
         this.appointments = data;
         this.dataSource.data = this.appointments;
         this.dataSource.paginator = this.paginator;
-      }, error => {
-        console.error('Error loading appointments:', error);
       });
     } else {
       this.appointmentService.getAppointmentsByDate(today).subscribe(data => {
-        console.log('Appointments received:', data);
         this.appointments = data;
         this.dataSource.data = this.appointments;
         this.dataSource.paginator = this.paginator;
-      }, error => {
-        console.error('Error loading appointments:', error);
       });
     }
   }
-
 
   onDateChange(date: Date | null): void {
     if (date) {
       const utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
       this.selectedDate = utcDate;
-      console.log('Date changed, new selectedDate:', this.selectedDate);
       this.loadAppointments();
     }
   }
-
 
   confirmDeleteAppointment(id: number): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -95,8 +82,6 @@ export class AppointmentListComponent implements OnInit {
 
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
-    console.log('Filter applied, filter value:', filterValue);
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }
