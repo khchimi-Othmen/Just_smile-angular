@@ -52,17 +52,11 @@ export class PaymentListComponent implements OnInit {
 
   onDateChange(date: Date | null): void {
     if (date) {
-      console.log("Selected Date:", date);
-      const year = date.getFullYear();
-      const month = ('0' + (date.getMonth() + 1)).slice(-2);
-      const day = ('0' + date.getDate()).slice(-2);
-      const formattedDate = `${year}-${month}-${day}`;
-
-      console.log("Formatted Date:", formattedDate);
       this.selectedDate = date;
-      this.loadPayments(formattedDate);
+      this.loadPayments(date.toISOString().split('T')[0]); // Formate automatiquement la date en 'yyyy-MM-dd'
     }
   }
+
 
 
 
