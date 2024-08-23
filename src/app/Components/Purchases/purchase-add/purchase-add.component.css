@@ -1,0 +1,38 @@
+.add-form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #fafafa; /* Fond clair */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.mat-card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #3f51b5; /* Couleur bleue pour le titre */
+}
+
+.full-width-field {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button[mat-raised-button] {
+    font-weight: 600;
+    background-color: #3f51b5; /* Bouton principal bleu */
+}
+
+button[mat-stroked-button] {
+    font-weight: 600;
+    border-color: #f44336; /* Bordure rouge pour le bouton d'annulation */
+    color: #f44336; /* Texte rouge pour le bouton d'annulation */
+}

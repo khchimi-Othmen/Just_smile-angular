@@ -1,0 +1,41 @@
+<div *ngIf="appointment" class="update-form">
+  <mat-card class="appointment-card">
+    <mat-card-header class="card-header">
+      <mat-card-title class="patient-name">{{ appointment.patient.nom }} {{ appointment.patient.prenom }}</mat-card-title>
+      <mat-card-subtitle class="appointment-info">
+        Date actuelle : {{ appointment.date | date:'dd/MM/yyyy' }}<br>
+        Heure actuelle : {{ appointment.time }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+      <form (ngSubmit)="updateAppointment()" #appointmentForm="ngForm">
+
+        <div class="form-group">
+          <mat-form-field appearance="outline" class="full-width-field">
+            <mat-label>Nouvelle Date</mat-label>
+            <input matInput type="date" [(ngModel)]="appointment.date" name="date" required>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field appearance="outline" class="full-width-field">
+            <mat-label>Nouvelle Heure</mat-label>
+            <input matInput type="time" [(ngModel)]="appointment.time" name="time" required>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field appearance="outline" class="full-width-field">
+            <mat-label>Raison</mat-label>
+            <textarea matInput [(ngModel)]="appointment.reason" name="reason" placeholder="Entrez la raison du rendez-vous" required></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="form-buttons">
+          <button mat-raised-button color="primary" type="submit">Enregistrer</button>
+          <button mat-stroked-button color="warn" type="button" routerLink="/appointments">Annuler</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

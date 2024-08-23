@@ -1,0 +1,62 @@
+<div class="dashboard-container">
+  <div class="date-picker">
+    <mat-form-field appearance="outline">
+      <mat-label>Sélectionner une date</mat-label>
+      <input matInput [matDatepicker]="picker" (dateChange)="onDateChange($event)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <p class="selected-date">Date sélectionnée : {{ selectedDate }}</p>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-card">
+      <h3>Résumé du Jour</h3>
+      <canvas baseChart
+              [data]="dayChartData"
+              [options]="chartOptions"
+              chartType="bar">
+      </canvas>
+      <div class="chart-values">
+        <p><span>Total des revenus :</span> {{ dayChartData.datasets[0].data[0] }} TND</p>
+        <p><span>Total des dépenses :</span> {{ dayChartData.datasets[0].data[1] }} TND</p>
+        <p><span>Total net :</span> {{ dayChartData.datasets[0].data[2] }} TND</p>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Résumé de la Semaine</h3>
+      <canvas baseChart
+              [data]="weekChartData"
+              [options]="chartOptions"
+              chartType="bar">
+      </canvas>
+      <div class="chart-values">
+        <p><span>Total des revenus :</span> {{ weekChartData.datasets[0].data[0] }} TND</p>
+        <p><span>Total des dépenses :</span> {{ weekChartData.datasets[0].data[1] }} TND</p>
+        <p><span>Total net :</span> {{ weekChartData.datasets[0].data[2] }} TND</p>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Résumé du Mois</h3>
+      <canvas baseChart
+              [data]="monthChartData"
+              [options]="chartOptions"
+              chartType="bar">
+      </canvas>
+      <div class="chart-values">
+        <p><span>Total des revenus :</span> {{ monthChartData.datasets[0].data[0] }} TND</p>
+        <p><span>Total des dépenses :</span> {{ monthChartData.datasets[0].data[1] }} TND</p>
+        <p><span>Total net :</span> {{ monthChartData.datasets[0].data[2] }} TND</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intégration du composant Financial Summary -->
+  <!--  <app-financial-summary></app-financial-summary>-->
+</div>
+
+<br>
+<hr>
+<app-financial-dashboard></app-financial-dashboard>

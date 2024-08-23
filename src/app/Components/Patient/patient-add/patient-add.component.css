@@ -1,0 +1,30 @@
+.add-form, .update-form {
+  max-width: 600px; /* Augmente la largeur maximale pour accueillir deux colonnes */
+  margin: 0 auto; /* Centre le formulaire */
+  padding: 20px;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px; /* Espace entre les lignes */
+}
+
+.compact-field {
+  width: 48%; /* Les champs occupent chacun 48% de la largeur de la ligne */
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0px; /* Réduit l'espace sous les champs */
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px; /* Réduit l'espace au-dessus des boutons */
+}

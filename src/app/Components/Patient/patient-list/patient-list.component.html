@@ -1,0 +1,112 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>
+      Liste des Patients
+    </mat-card-title>
+
+    <!-- Conteneur centré pour la barre de recherche -->
+    <div class="d-flex justify-content-center mb-3">
+      <mat-form-field class="search-field">
+        <mat-label>Rechercher</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Rechercher un patient">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+
+
+    <!-- Bouton aligné à droite -->
+    <div class="d-flex justify-content-end mb-3">
+      <button mat-raised-button color="primary" routerLink="/patients/add">
+        <mat-icon>add</mat-icon> Ajouter un Patient
+      </button>
+    </div>
+
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Colonne Nom -->
+      <ng-container matColumnDef="nom">
+        <mat-header-cell *matHeaderCellDef>Nom</mat-header-cell>
+        <mat-cell *matCellDef="let patient">{{ patient.nom }}</mat-cell>
+      </ng-container>
+
+      <!-- Colonne Prénom -->
+      <ng-container matColumnDef="prenom">
+        <mat-header-cell *matHeaderCellDef>Prénom</mat-header-cell>
+        <mat-cell *matCellDef="let patient">{{ patient.prenom }}</mat-cell>
+      </ng-container>
+
+      <!-- Colonne Téléphone -->
+      <ng-container matColumnDef="telephone">
+        <mat-header-cell *matHeaderCellDef>Téléphone</mat-header-cell>
+        <mat-cell *matCellDef="let patient">{{ patient.telephone }}</mat-cell>
+      </ng-container>
+
+
+      <!-- Colonne Actions -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let patient">
+
+          <button mat-icon-button color="primary" (click)="viewDetails(patient.patientId)">
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button color="primary" (click)="editPatient(patient.patientId)">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-icon-button color="warn" (click)="confirmDeletePatient(patient.patientId)">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+        </mat-cell>
+      </ng-container>
+
+
+      <!-- Colonne payment -->
+      <ng-container matColumnDef="payments">
+        <mat-header-cell *matHeaderCellDef>Paiements</mat-header-cell>
+        <mat-cell *matCellDef="let patient">
+
+
+          <!-- Nouveau bouton pour voir les paiements -->
+          <button mat-icon-button color="primary" (click)="viewPayments(patient.patientId)">
+            <mat-icon>payment</mat-icon>
+          </button>
+
+          <button mat-icon-button color="primary" (click)="openAddPaymentDialog(patient.patientId)">
+            <mat-icon>add_circle</mat-icon>
+          </button>
+
+        </mat-cell>
+      </ng-container>
+
+      <!-- Colonne appointment -->
+      <ng-container matColumnDef="appointments">
+        <mat-header-cell *matHeaderCellDef>Rendez-vous</mat-header-cell>
+        <mat-cell *matCellDef="let patient">
+
+          <!-- Nouveau bouton pour voir les rendez-vous -->
+          <button mat-icon-button color="primary" (click)="viewAppointments(patient.patientId)">
+            <mat-icon>event</mat-icon>
+          </button>
+
+          <button mat-icon-button color="primary" (click)="openAddAppointmentDialog(patient.patientId)">
+            <mat-icon>add_circle</mat-icon>
+          </button>
+
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <!-- Pagination -->
+    <mat-paginator [length]="patients.length"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons>
+    </mat-paginator>
+  </mat-card>
+</div>

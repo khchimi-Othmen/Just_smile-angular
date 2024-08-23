@@ -1,0 +1,65 @@
+<div class="add-form">
+  <mat-card>
+    <mat-card-title>Ajouter un Nouveau Patient</mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="addPatient()" #patientForm="ngForm" class="form-grid">
+
+        <div class="form-row">
+          <mat-form-field appearance="fill" class="compact-field">
+            <mat-label>Nom</mat-label>
+            <input matInput type="text" id="nom" [(ngModel)]="patient.nom" name="nom" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="compact-field">
+            <mat-label>Prénom</mat-label>
+            <input matInput type="text" id="prenom" [(ngModel)]="patient.prenom" name="prenom" >
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="fill" class="compact-field">
+            <mat-label>Date de Naissance</mat-label>
+            <input matInput type="date" id="dateNaissance" [(ngModel)]="patient.dateNaissance" name="dateNaissance" >
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="compact-field">
+            <mat-label>Sexe</mat-label>
+            <mat-select id="sexe" [(ngModel)]="patient.sexe" name="sexe" >
+              <mat-option value="M">Masculin</mat-option>
+              <mat-option value="F">Féminin</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="fill" class="compact-field">
+            <mat-label>Adresse</mat-label>
+            <input matInput type="text" id="adresse" [(ngModel)]="patient.adresse" name="adresse" >
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="compact-field">
+            <mat-label>Téléphone</mat-label>
+            <input matInput type="tel" id="telephone" [(ngModel)]="patient.telephone" name="telephone" >
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="fill" class="compact-field">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" id="email" [(ngModel)]="patient.email" name="email" >
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="compact-field">
+            <mat-label>Date d'Inscription</mat-label>
+            <input matInput type="date" id="dateInscription" [(ngModel)]="patient.dateInscription" name="dateInscription" >
+          </mat-form-field>
+        </div>
+
+        <div class="form-buttons">
+          <button mat-raised-button color="primary" type="submit">Ajouter</button>
+          <button mat-stroked-button color="warn" type="button" routerLink="/patients">Annuler</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

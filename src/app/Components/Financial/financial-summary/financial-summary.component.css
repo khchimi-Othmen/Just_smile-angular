@@ -1,0 +1,45 @@
+.financial-summary-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+mat-card {
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+mat-card-header {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+mat-card-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+mat-card-subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.date-picker {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+mat-tab-group {
+  margin-top: 20px;
+}
+
+mat-tab-label {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+mat-tab-body {
+  padding: 15px;
+}

@@ -1,0 +1,19 @@
+<h1 mat-dialog-title class="dialog-title">Liste des Paiements</h1>
+
+<div mat-dialog-content>
+  <mat-list class="payment-list">
+    <mat-list-item *ngFor="let payment of payments" class="payment-item">
+      <mat-icon matListIcon>payment</mat-icon>
+      <h3 matLine>{{payment.amount | number:'1.2-2'}} TND</h3>
+      <p matLine class="payment-date">{{payment.date | date:'dd/MM/yyyy'}}</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+  <div class="total-amount">
+    <h3>Total des Paiements: {{totalPayment | number:'1.2-2'}} TND</h3>
+  </div>
+</div>
+
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button color="primary" (click)="onNoClick()">Fermer</button>
+</div>

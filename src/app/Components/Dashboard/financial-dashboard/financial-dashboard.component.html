@@ -1,0 +1,28 @@
+<div class="period-summary-container">
+    <div class="date-picker">
+        <mat-form-field appearance="outline">
+            <mat-label>Date de début</mat-label>
+            <input matInput [matDatepicker]="startPicker" (dateChange)="onStartDateChange($event)">
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Date de fin</mat-label>
+            <input matInput [matDatepicker]="endPicker" (dateChange)="onEndDateChange($event)">
+            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+            <mat-datepicker #endPicker></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-card">
+            <h3>Résumé pour la période</h3>
+            <canvas baseChart
+                    [data]="lineChartData"
+                    [options]="chartOptions"
+                    chartType="line">
+            </canvas>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div *ngIf="patient" class="details-form">
+  <mat-card>
+    <mat-card-title>Détails du Patient</mat-card-title>
+    <mat-card-content>
+      <div class="details-container">
+        <div class="details-item" *ngFor="let detail of patientDetails">
+          <span class="label">{{ detail.label }}: </span>
+          <span class="value">{{ detail.value }}</span>
+        </div>
+      </div>
+      <div class="form-buttons">
+        <button mat-raised-button color="primary" routerLink="/patients">Retour à la liste</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,47 @@
+<div class="financial-summary-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Financial Summary</mat-card-title>
+      <mat-card-subtitle>{{ selectedDate }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field appearance="fill" class="date-picker">
+        <mat-label>Select Date</mat-label>
+        <input matInput [matDatepicker]="picker" (dateChange)="onDateChange($event)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-tab-group>
+        <mat-tab label="Day">
+          <div *ngIf="summaryForDay; else noData">
+            <p>Total Income: {{ summaryForDay.totalIncome | currency }}</p>
+            <p>Total Expense: {{ summaryForDay.totalOutcome | currency }}</p>
+            <p>Net Total: {{ summaryForDay.netTotal | currency }}</p>
+          </div>
+          <ng-template #noData>
+            <p>No data available for the selected day.</p>
+          </ng-template>
+        </mat-tab>
+
+        <mat-tab label="Week">
+          <div *ngIf="summaryForWeek; else noData">
+            <p>Total Income: {{ summaryForWeek.totalIncome | currency }}</p>
+            <p>Total Expense: {{ summaryForWeek.totalOutcome | currency }}</p>
+            <p>Net Total: {{ summaryForWeek.netTotal | currency }}</p>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Month">
+          <div *ngIf="summaryForMonth; else noData">
+            <p>Total Income: {{ summaryForMonth.totalIncome | currency }}</p>
+            <p>Total Expense: {{ summaryForMonth.totalOutcome | currency }}</p>
+            <p>Net Total: {{ summaryForMonth.netTotal | currency }}</p>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>
+

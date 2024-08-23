@@ -1,0 +1,65 @@
+.dialog-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3f51b5;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.payment-list {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.payment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.payment-item mat-icon {
+  color: #3f51b5;
+  margin-right: 16px;
+}
+
+.payment-item h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  flex-grow: 1;
+  text-align: right;
+}
+
+.payment-date {
+  color: #757575;
+  font-size: 14px;
+  text-align: right;
+  margin-left: 16px;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.dialog-actions button {
+  margin-left: 8px;
+}
+
+.total-amount {
+  margin-top: 24px;
+  font-weight: bold;
+  text-align: left;
+  font-size: 22px; /* Augmentation de la taille de la police */
+  color: #4caf50; /* Vert Material Design pour attirer l'attention */
+  background-color: #f1f8e9; /* Fond léger pour faire ressortir le total */
+  padding: 12px; /* Ajout d'un padding pour aérer l'affichage */
+  border-radius: 4px; /* Arrondi des coins pour un effet plus doux */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet de relief */
+}
+

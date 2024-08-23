@@ -1,0 +1,13 @@
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-dialog-actions {
+  justify-content: flex-end;
+}
+
+/* styles.css ou appointment-add-dialog.component.css */
+.error-snackbar {
+  background-color: #f44336; /* Couleur rouge pour les erreurs */
+  color: white;
+}

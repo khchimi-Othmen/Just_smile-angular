@@ -1,0 +1,74 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>
+            Liste des Achats
+        </mat-card-title>
+
+        <!-- Sélecteur de mois -->
+        <div class="d-flex justify-content-center mb-3">
+            <mat-form-field appearance="fill">
+                <mat-label>Sélectionner un mois</mat-label>
+                <input matInput [matDatepicker]="monthPicker" (dateChange)="onMonthChange($event.value)"
+                       placeholder="MM/YYYY">
+                <mat-datepicker-toggle matSuffix [for]="monthPicker"></mat-datepicker-toggle>
+                <mat-datepicker #monthPicker startView="multi-year"
+                                (monthSelected)="onMonthChange($event)"
+                                panelClass="month-picker"
+                                [startAt]="selectedMonth">
+                </mat-datepicker>
+
+            </mat-form-field>
+        </div>
+
+        <!-- Bouton aligné à droite -->
+        <div class="d-flex justify-content-end mb-3">
+            <button mat-raised-button color="primary" routerLink="/purchases/add">
+                <mat-icon>add</mat-icon> Ajouter un achat
+            </button>
+        </div>
+
+        <!-- Tableau des achats -->
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- Colonne Description -->
+            <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+                <mat-cell *matCellDef="let purchase">{{ purchase.description }}</mat-cell>
+            </ng-container>
+
+            <!-- Colonne Montant -->
+            <ng-container matColumnDef="amount">
+                <mat-header-cell *matHeaderCellDef>Montant</mat-header-cell>
+                <mat-cell *matCellDef="let purchase">{{ purchase.amount | number:'1.2-2' }} TND</mat-cell>
+            </ng-container>
+
+            <!-- Colonne Date -->
+            <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+                <mat-cell *matCellDef="let purchase">{{ purchase.date | date:'dd/MM/yyyy' }}</mat-cell>
+            </ng-container>
+
+            <!-- Colonne Actions -->
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                <mat-cell *matCellDef="let purchase">
+                    <button mat-icon-button color="primary" (click)="editPurchase(purchase.purchaseId)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="confirmDeletePurchase(purchase.purchaseId)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <!-- Pagination -->
+        <mat-paginator [length]="purchases.length"
+                       [pageSize]="10"
+                       [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons>
+        </mat-paginator>
+    </mat-card>
+</div>

@@ -1,0 +1,37 @@
+.details-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.mat-card {
+  width: auto; /* Laisse la carte s'adapter à son contenu */
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.details-item {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  font-weight: bold;
+  color: #616161;
+  flex: 0 0 150px; /* Largeur fixe pour le label */
+}
+
+.value {
+  flex: 1;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}

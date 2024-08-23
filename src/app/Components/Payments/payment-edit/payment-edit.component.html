@@ -1,0 +1,31 @@
+<div *ngIf="payment" class="update-form">
+  <mat-card class="payment-card">
+    <mat-card-header class="card-header">
+      <mat-card-title class="patient-name">{{ payment.patient.nom }} {{ payment.patient.prenom }}</mat-card-title>
+      <mat-card-subtitle class="payment-info">Date du paiement actuel : {{ payment.date | date:'dd/MM/yyyy' }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+      <form (ngSubmit)="updatePayment()" #paymentForm="ngForm">
+
+        <div class="form-group">
+          <mat-form-field appearance="outline" class="full-width-field">
+            <mat-label>Montant</mat-label>
+            <input matInput type="number" [(ngModel)]="payment.amount" name="amount" placeholder="Entrez le montant" required>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field appearance="outline" class="full-width-field">
+            <mat-label>Nouvelle Date du Paiement</mat-label>
+            <input matInput type="date" [(ngModel)]="payment.date" name="date" required>
+          </mat-form-field>
+        </div>
+
+        <div class="form-buttons">
+          <button mat-raised-button color="primary" type="submit">Enregistrer</button>
+          <button mat-stroked-button color="warn" type="button" routerLink="/payments">Annuler</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

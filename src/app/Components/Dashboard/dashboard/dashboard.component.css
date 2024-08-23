@@ -1,0 +1,71 @@
+.dashboard-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.date-picker {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.selected-date {
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #555555;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    border-color: #cccccc; /* Couleur de bordure gris clair */
+}
+
+.chart-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.chart-card {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.chart-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    color: #333333;
+}
+
+.chart-card canvas {
+    max-height: 160px;
+    width: 100%;
+}
+
+.chart-values {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555555;
+}
+
+.chart-values p {
+    margin: 5px 0;
+}
+
+.chart-values span {
+    font-weight: bold;
+    color: #333333; /* Couleur du texte gris foncé */
+}
+
+app-financial-summary {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

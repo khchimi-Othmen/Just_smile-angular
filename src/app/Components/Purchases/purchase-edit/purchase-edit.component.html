@@ -1,0 +1,38 @@
+<div *ngIf="purchase" class="update-form">
+    <mat-card class="purchase-card">
+        <mat-card-header class="card-header">
+            <mat-card-title class="purchase-description">{{ purchase.description }}</mat-card-title>
+            <mat-card-subtitle class="purchase-info">Date actuelle : {{ purchase.date | date:'dd/MM/yyyy' }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+            <form (ngSubmit)="updatePurchase()" #purchaseForm="ngForm">
+
+                <div class="form-group">
+                    <mat-form-field appearance="outline" class="full-width-field">
+                        <mat-label>Description</mat-label>
+                        <input matInput [(ngModel)]="purchase.description" name="description" placeholder="Entrez la description" required>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field appearance="outline" class="full-width-field">
+                        <mat-label>Montant</mat-label>
+                        <input matInput type="number" [(ngModel)]="purchase.amount" name="amount" placeholder="Entrez le montant" required>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field appearance="outline" class="full-width-field">
+                        <mat-label>Nouvelle Date d'Achat</mat-label>
+                        <input matInput type="date" [(ngModel)]="purchase.date" name="date" required>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-buttons">
+                    <button mat-raised-button color="primary" type="submit">Enregistrer</button>
+                    <button mat-stroked-button color="warn" type="button" routerLink="/purchases">Annuler</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
