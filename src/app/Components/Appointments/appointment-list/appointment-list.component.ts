@@ -51,8 +51,7 @@ export class AppointmentListComponent implements OnInit {
 
   onDateChange(date: Date | null): void {
     if (date) {
-      const utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-      this.selectedDate = utcDate;
+      this.selectedDate = date;
       this.loadAppointments();
     }
   }
