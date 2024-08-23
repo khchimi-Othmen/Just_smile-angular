@@ -1,37 +1,32 @@
-# Stage 1: Build Angular application
-
-# Use a lightweight Node.js image for the build
+# Use the official Node.js 16 image as a base image for the Angular build
 FROM node:16.13.0-alpine AS build
 
-# Set working directory
+# Create a directory for your app and set it as the working directory
 WORKDIR /app
 
-# Install dependencies separately to leverage Docker cache
-COPY package.json package-lock.json ./
+# Copy the package.json and package-lock.json files to install dependencies
+COPY package*.json ./
+
+# Install Angular CLI globally
+RUN npm install -g @angular/cli@14.2.13
+
+# Install project dependencies
 RUN npm ci
 
-# Copy the application source code
+# Copy the rest of the application source code to the container
 COPY . .
 
 # Build the Angular application in production mode
-RUN npm run build -- --prod
+RUN npm run build --prod
 
-# Stage 2: Serve the application using Nginx
+# Use the official Nginx image to serve the Angular application
+FROM nginx:1.25.3
 
-# Use a lightweight Nginx image
-FROM nginx:1.25.3-alpine
-
-# Copy the Angular build output to Nginx's html directory
+# Copy the build output from the previous stage to the Nginx html directory
 COPY --from=build /app/dist/just_smile_ng /usr/share/nginx/html
 
-# Remove the default Nginx configuration file
-RUN rm /etc/nginx/conf.d/default.conf
-
-# Copy your custom Nginx configuration file
-COPY nginx.conf /etc/nginx/conf.d
-
-# Expose port 80 for the server
+# Expose port 80
 EXPOSE 80
 
-# Start Nginx
+# Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
