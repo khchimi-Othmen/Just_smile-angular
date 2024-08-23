@@ -9,29 +9,44 @@ on:
       - main
 
 jobs:
-  build:
-    name: Build Angular Application
+  build-deploy:
+    name: Build and Deploy Angular Application
     runs-on: ubuntu-latest
-
     steps:
       # Checkout code from repository
       - name: Checkout code
         uses: actions/checkout@v3
 
       # Set up Node.js environment
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16.13.0'
+          node-version: '16.13.0'  # Specify your Node.js version
 
-      # Install npm dependencies
-      - name: Install npm dependencies
+      # Install dependencies
+      - name: Install dependencies
         run: npm install
 
       # Build the Angular application
-      - name: Build Angular Application
-        run: npm run build -- --prod
+      - name: Build Angular application
+        run: npm run build --prod
 
+      # Generate a Docker tag based on the current date and time
+      - name: Generate Docker Tag
+        id: tag
+        run: echo "tag=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
-
-  # Additional jobs can be added if needed for testing, linting, etc.
+#      # Build the Docker image using the generated tag
+#      - name: Build Docker image
+#        run: docker build -t khchimiothmen/just_smile_angular:${{ env.tag }} .
+#
+#      # Log in to Docker Hub using credentials from secrets
+#      - name: Log in to Docker Hub
+#        uses: docker/login-action@v2
+#        with:
+#          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+#          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+#
+#      # Push the Docker image to Docker Hub
+#      - name: Push Docker image to Docker Hub
+#        run: docker push khchimiothmen/just_smile_angular:${{ env.tag }}
