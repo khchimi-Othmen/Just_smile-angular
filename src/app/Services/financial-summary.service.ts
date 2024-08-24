@@ -11,7 +11,8 @@ import {Payment} from "../Models/Payment";
 export class FinancialSummaryService {
 
   // private apiUrl = `${environment.apiUrl}/financial-summaries`;
-  private apiUrl = 'http://localhost:8088/api/financial-summaries';
+  // private apiUrl = 'http://localhost:8088/api/financial-summaries';
+  private apiUrl = `${environment.apiUrl}/financial-summaries`;
 
   constructor(private http: HttpClient) { }
 

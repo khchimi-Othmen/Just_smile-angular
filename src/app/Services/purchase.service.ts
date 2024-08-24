@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Purchase} from "../Models/Purchase";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PurchaseService {
 
-  private apiUrl = 'http://localhost:8088/api/purchases';  // L'URL de votre API
+  // private apiUrl = 'http://localhost:8088/api/purchases';  // L'URL de votre API
+  private apiUrl = `${environment.apiUrl}/purchases`;
 
   constructor(private http: HttpClient) { }
 
