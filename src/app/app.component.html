@@ -1,3 +1,15 @@
+<mat-toolbar class="toolbar">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="toolbar-title">
+    <mat-icon>local_offer</mat-icon>
+    <span class="separator"></span>
+    Just Smile
+  </span>
+</mat-toolbar>
+
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side" opened class="sidenav">
     <mat-nav-list>
@@ -23,27 +35,12 @@
       </a>
     </mat-nav-list>
 
-    <!-- Professional name at the bottom -->
     <div class="doctor-info">
       Dr. Khchimi Houssem
     </div>
   </mat-sidenav>
 
   <mat-sidenav-content class="content">
-    <mat-toolbar class="toolbar">
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-
-      <!-- "Just Smile" with medical services and tooth icons -->
-      <span class="toolbar-title">
-        <mat-icon>local_offer</mat-icon>
-        <span class="separator"></span>
-        Just Smile
-      </span>
-
-    </mat-toolbar>
-
     <div class="main-content">
       <router-outlet></router-outlet>
     </div>

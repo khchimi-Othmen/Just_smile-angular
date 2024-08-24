@@ -38,7 +38,7 @@ jobs:
 
       # Build the Docker image using the generated tag
       - name: Build Docker image
-        run: docker build -t khchimiothmen/just_smile_angular:proflatest .
+        run: docker build -t khchimiothmen/just_smile_angular:latest .
 
       # Log in to Docker Hub using credentials from secrets
       - name: Log in to Docker Hub
@@ -49,4 +49,4 @@ jobs:
 
       # Push the Docker image to Docker Hub
       - name: Push Docker image to Docker Hub
-        run: docker push khchimiothmen/just_smile_angular:proflatest
+        run: docker push khchimiothmen/just_smile_angular:latest
