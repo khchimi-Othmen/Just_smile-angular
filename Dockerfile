@@ -1,7 +1,7 @@
 # Use the official Node.js 16 image as a base image for the Angular build
 FROM node:16.13.0-alpine AS build
 
-# Create a directory for your app and set it as the working directory
+# Set the working directory
 WORKDIR /app
 
 # Copy the package.json and package-lock.json files to install dependencies
@@ -24,6 +24,9 @@ FROM nginx:1.25.3
 
 # Copy the build output from the previous stage to the Nginx html directory
 COPY --from=build /app/dist/just_smile_ng /usr/share/nginx/html
+
+# Copy custom nginx configuration file
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80
 EXPOSE 80
