@@ -19,7 +19,7 @@ import {NotFoundComponent} from "./Components/Dashboard/not-found/not-found.comp
 
 const routes: Routes = [
   { path: '', redirectTo: 'patients', pathMatch: 'full' },
-  { path: 'dashboard93', component: DashboardComponent },
+  { path: 'board92', component: DashboardComponent },
   { path: 'patients', component: PatientListComponent },
   { path: 'patients/:id/details', component: PatientDetailsComponent },
   { path: 'patients/:id/edit', component: PatientEditComponent },
