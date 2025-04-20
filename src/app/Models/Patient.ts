@@ -11,6 +11,7 @@ export class Patient {
   telephone!: string;
   email!: string;
   dateInscription!: Date;
+  details?: string; 
   appointments?: Appointment[];
   payments?: Payment[];
 }
