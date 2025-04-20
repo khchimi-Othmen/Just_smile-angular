@@ -54,12 +54,13 @@
             <input matInput type="date" id="dateInscription" [(ngModel)]="patient.dateInscription" name="dateInscription" >
           </mat-form-field>
         </div>
-        <div class="form-row">
-          <mat-form-field appearance="fill" class="full-width-field">
+        <div class="form-row" style="width: 100%;">
+          <mat-form-field appearance="fill" style="width: 100%;">
             <mat-label>Détails</mat-label>
             <textarea matInput id="details" [(ngModel)]="patient.details" name="details" rows="4" placeholder="Modifier les notes du docteur..."></textarea>
           </mat-form-field>
         </div>
+
 
         <div class="form-buttons">
           <button mat-raised-button color="primary" type="submit">Enregistrer</button>
