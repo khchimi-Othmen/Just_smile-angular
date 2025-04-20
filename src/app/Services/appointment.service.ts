@@ -12,7 +12,9 @@ export class AppointmentService {
   // private apiUrl = 'http://192.168.1.25:8088/api/appointments';
   private apiUrl = `${environment.apiUrl}/appointments`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    console.log('Othmen API Base URL:', this.apiUrl);
+  }
 
   getAllAppointments(): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(this.apiUrl);
