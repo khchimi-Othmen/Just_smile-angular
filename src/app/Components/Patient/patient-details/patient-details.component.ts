@@ -35,7 +35,8 @@ export class PatientDetailsComponent implements OnInit {
       { label: 'Adresse', value: this.patient.adresse },
       { label: 'Téléphone', value: this.patient.telephone },
       { label: 'Email', value: this.patient.email },
-      { label: 'Date d\'Inscription', value: this.patient.dateInscription ? new Date(this.patient.dateInscription).toLocaleDateString() : '' }
+      { label: 'Date d\'Inscription', value: this.patient.dateInscription ? new Date(this.patient.dateInscription).toLocaleDateString() : '' },
+      { label: 'Détails', value: this.patient.details }
     ];
   }
 }
