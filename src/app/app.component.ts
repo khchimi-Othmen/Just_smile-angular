@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   navigateTo(route: string): void {
-    if (route === 'dashboard') {
+    if (route === 'dashboard93') {
       const password = prompt('Enter password to access Dashboard');
       if (password === '7amaSaida') {
         this.router.navigate([`/${route}`]); // Navigate to dashboard if password is correct
